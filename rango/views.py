@@ -62,6 +62,12 @@ def add_page(request, category_name_slug):
     return render(request=request, template_name='rango/add_page.html', context=context_dict)
 
 
+def about(request):
+    print(request.method)
+    print(request.user)
+    return render(request=request, template_name='rango/about.html', context={})
+
+
 def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
     page_list = Page.objects.order_by('-views')[:5]
